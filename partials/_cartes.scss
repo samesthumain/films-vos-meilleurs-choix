@@ -1,15 +1,22 @@
 @use "variables";
 @use "sass:color";
+@use "mixins/text";
 
-card{
-    background-color: variables.$primary;
-    margin: 5px;
-    padding:5px;
-}
+.card {
+  background-color: variables.$primary;
+  margin: 5px;
+  padding: 5px;
 
-card__btn{
+  &__btn {
+    @include text.small-cap;
     width: 100%;
     padding: 0 5px;
     border: none;
     background: color.adjust(variables.$primary, $lightness: 15%);
+    color: color.complement(variables.$primary);
+
+    &:hover {
+      background: color.adjust(variables.$primary, $lightness: 25%);
+    }
+  }
 }
